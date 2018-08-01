@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>     
+<!DOCTYPE mapper     
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"    
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.mashensoft.mapper.CategoryMapper">
+	<insert id="batchInsert"  parameterType="java.util.List">
+		insert into category (name,create_time)
+		values
+		<foreach collection="list" item="item" index="index" separator="," >  
+        (#{item.name},SYSDATE())  
+    </foreach>  
+	</insert>
+	<select id="getCategoryList" resultType="category"
+		parameterType="category">
+		SELECT * FROM category
+	</select>
+	<select id="getCategoryById" resultType="category"
+		parameterType="category">
+		SELECT * FROM category where category_id=#{categoryId}
+	</select>
+	<insert id="createCategory" parameterType="category">
+		insert into category (name,create_user,create_time)
+		values (#{name},#{createUser},#{createTime})
+	</insert>
+	<update id="updateCategory" parameterType="category">
+		update category
+		<trim prefix="set" suffixOverrides=",">
+			<if test="name != null">name=#{name},</if>
+			<if test="updateUser != null">update_user=#{updateUser},</if>
+			<if test="updateTime != null">update_time=#{updateTime},</if>
+		</trim>
+		where category_id=#{categoryId}
+	</update>
+	<delete id="deleteCategoryById" parameterType="int">
+		delete from category where category_id=#{categoryId}
+	</delete>
+	<select id="selectCategoryAsPageList" resultType="category">
+		SELECT * FROM category
+		where 1=1
+		<if test="name != null">and name like "%"#{name}"%"</if>
+		limit #{beginrow},#{limit}
+	</select>
+	<select id="selectCategoryAsPageListCount" resultType="int">
+		SELECT count(*) as countNumber FROM category
+		where 1=1
+		<if test="name != null">and name like "%"#{name}"%"</if>
+	</select>
+</mapper>

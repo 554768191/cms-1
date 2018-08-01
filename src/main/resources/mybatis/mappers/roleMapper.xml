@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>     
+<!DOCTYPE mapper     
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"    
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.mashensoft.mapper.RoleMapper">
+
+	<!-- <select id="getRoleList" resultType="com.mashensoft.mapper.Role"> -->
+	<!-- SELECT role_id roleId,role_name roleName FROM role -->
+	<!-- </select> -->
+<!-- 	<resultMap id="roleMapper" type="com.mashensoft.mapper.Role"> -->
+<!-- 		<result column="role_id" property="roleId"></result> -->
+<!-- 		<result column="role_name" property="roleName"></result> -->
+<!-- 	</resultMap> -->
+<!-- 	<select id="getRoleList" resultMap="roleMapper"> -->
+<!-- 		SELECT * FROM role -->
+<!-- 	</select> -->
+<!-- 	<select id="getRoleList" resultType="com.mashensoft.mapper.Role"> -->
+<!-- 		SELECT * FROM role -->
+<!-- 	</select> -->
+	<!-- <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" 
+		> -->
+	<!-- SELECT -->
+	<!-- <include refid="Base_Column_List" /> -->
+	<!-- FROM users -->
+	<!-- WHERE id = #{id} -->
+	<!-- </select> -->
+<!-- 	<insert id="addRole" parameterType="com.mashensoft.mapper.Role"> -->
+<!-- 		insert into role (role_name) values(#{roleName}) -->
+<!-- 	</insert> -->
+</mapper>
